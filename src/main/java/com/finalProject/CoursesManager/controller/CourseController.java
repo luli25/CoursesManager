@@ -39,10 +39,10 @@ public class CourseController {
         return new ResponseEntity<>(newCourse, HttpStatus.CREATED);
     }
 
-    @PutMapping("/update")
-    public ResponseEntity<Course> updateCourse(@RequestBody @DateTimeFormat(pattern = "MM-dd-yyyy") Course course) {
-         courseService.updateCourse(course);
-        return new ResponseEntity<>(course, HttpStatus.OK);
+    @PutMapping("/update/{id}")
+    public ResponseEntity<Course> updateCourse(@PathVariable("id") int id, @RequestBody @DateTimeFormat(pattern = "MM-dd-yyyy") Course course) {
+         Course updatedCourse = courseService.updateCourse(id, course);
+        return new ResponseEntity<>(updatedCourse, HttpStatus.OK);
     }
 
     @DeleteMapping("delete/{id}")

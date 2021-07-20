@@ -29,7 +29,7 @@ public class CourseService {
         return coursesRepo.save(course);
     }
 
-    public Course updateCourse(Course course) {
+    public Course updateCourse(int id,Course course) {
         return coursesRepo.save(course);
     }
 
